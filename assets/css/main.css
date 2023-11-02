@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --main-color: rgb(196, 21, 21);
+    --secound-color: rgb(34, 31, 31);
+    --third-color:rgb(217, 195, 195);
+    --fourth-color:rgb(156, 5, 5);
+    --hover-color: rgb(49, 46, 46);
+}
+#calc{
+    width: 40%;
+    height: 100vh;
+    background-color: var(--secound-color);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+#result{
+    width: 100%;
+    height: 20vh;
+    background-color: var(--secound-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#result-screen{
+    background-color: var(--third-color);
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    width: 95%;
+    height: 16vh;
+    font-size: 2rem;
+    font-family: fantasy;
+    padding-left: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+#result-screen span::after{
+    content: "_";
+    animation: type-letter 1.5s infinite linear;
+    -webkit-animation: type-letter 1s infinite linear;
+}
+@keyframes type-letter{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+#btn-container{
+    width: 100%;
+    height: 79vh;
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: stretch;
+    gap: 1px;
+    grid-template-areas: 
+    "clear del division multiplication"
+    "one two three subtraction"
+    "four five six addition"
+    "seven eight nine addition"
+    "dot zero equal equal";
+}
+.num{
+    font-size: 2rem;
+    font-family: fantasy;
+    cursor: pointer;
+    background-color: var(--secound-color);
+    color: var(--third-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .5s;
+    -webkit-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+    -ms-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    user-select: none;
+}
+.num:hover{background-color: var(--hover-color);}
+.zero{grid-area: zero}
+.one{grid-area: one}
+.two{grid-area: two}
+.three{grid-area: three}
+.four{grid-area: four}
+.five{grid-area: five}
+.six{grid-area: six}
+.seven{grid-area: seven}
+.eight{grid-area: eight}
+.nine{grid-area: nine}
+.dot{grid-area: dot}
+.addition{
+    grid-area: addition;
+    background-color: var(--fourth-color);
+}
+.subtraction{
+    grid-area: subtraction;
+    background-color: var(--fourth-color);
+}
+.multiplication{
+    grid-area: multiplication;
+    background-color: var(--fourth-color);
+}
+.division{
+    grid-area: division;
+    background-color: var(--fourth-color);
+}
+.equal{
+    grid-area: equal;
+    background-color: var(--fourth-color);
+}
+.clear{
+    grid-area: clear;
+    background-color: var(--fourth-color);
+}
+.del{
+    grid-area: del;
+    background-color: var(--fourth-color);
+}
+
+@media screen and (max-width: 1100px) {
+    #calc{
+        width: 50%;
+        height: 100vh;
+    }
+}
+@media screen and (max-width: 950px) {
+    #calc{
+        width: 70%;
+        height: 100vh;
+    }
+}
+@media screen and (max-width: 640px) {
+    #calc{
+        width: 90%;
+        height: 100vh;
+    }
+}
+@media screen and (max-width: 500px) {
+    #calc{
+        width: 100%;
+        height: 100vh;
+    }
+    .num{
+        width: 80px;
+        height: 80px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #calc{
+        width: 100%;
+        height: 100vh;
+    }
+    .num{
+        width: 60px;
+        height: 60px;
+    }
+}
